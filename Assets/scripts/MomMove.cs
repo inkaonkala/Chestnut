@@ -6,6 +6,8 @@ public class MomMove : MonoBehaviour
     public float moveSpeed = 5f;
 
     public float jumpForce = 20f;
+    public int jumpMax = 2;
+
     public Transform groundCheck;
     public LayerMask groundLayer; private Rigidbody2D body;
 
@@ -13,6 +15,7 @@ public class MomMove : MonoBehaviour
     private MomInput input;
 
     private bool isGrounded;
+    private int jumpsLeft;
 
     private void Awake()
     {
@@ -35,11 +38,15 @@ public class MomMove : MonoBehaviour
     void Start()
     {
         body = GetComponent<Rigidbody2D>();
+        jumpsLeft = jumpMax;
     }
 
     void FixedUpdate()
     {
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, 0.1f, groundLayer);
+
+        if (isGrounded && body.linearVelocity.y <= 0f)
+            jumpsLeft = jumpMax;
 
         body.linearVelocity = new Vector2(movement.x * moveSpeed, body.linearVelocity.y);
 
@@ -49,9 +56,15 @@ public class MomMove : MonoBehaviour
     
     private void TryJump()
     {
-        if (isGrounded)
+        if (isGrounded || jumpsLeft > 0)
         {
             body.linearVelocity = new Vector2(body.linearVelocity.x, jumpForce);
+
+            if (!isGrounded)
+                jumpsLeft--;
+
+            if (isGrounded)
+                jumpsLeft = jumpMax - 1;
         }
     }
 

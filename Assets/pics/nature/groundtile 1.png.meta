@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 9e5493f8b99517e46bf890f5c8db7df9
+guid: a58148ed2d1716942af962603dcd50ca
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1227911436627437832
-    second: shruumcap 1_0
+      213: -6020667685818081802
+    second: groundtile 1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: shruumcap 1_0
+      name: groundtile 1_0
       rect:
         serializedVersion: 2
-        x: 9
-        y: 1
-        width: 68
-        height: 68
+        x: 0
+        y: 0
+        width: 80
+        height: 80
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 80961d322fa6a0110800000000000000
-      internalID: 1227911436627437832
+      spriteID: 6fdd32c73aa427ca0800000000000000
+      internalID: -6020667685818081802
       vertices: []
       indices: 
       edges: []
