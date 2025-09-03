@@ -15,7 +15,7 @@ public class CameraPager : MonoBehaviour
     [Header("Pages")]
     public Transform[] pageCenters;   // Page0, Page1, Page2...
     public int currentPage = 0;
-    public float pageWidth = 20.2f;
+    public float pageWidth = 16.0f;
     public float entryInset = 0.6f;
     public float snapTime = 0.15f;
 
