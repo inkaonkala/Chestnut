@@ -15,7 +15,7 @@ public class CameraPager : MonoBehaviour
     [Header("Pages")]
     public Transform[] pageCenters;   // Page0, Page1, Page2...
     public int currentPage = 0;
-    public float pageWidth = 16.0f;
+    public float pageWidth = 42.67f;
     public float entryInset = 0.6f;
     public float snapTime = 0.15f;
 
@@ -23,14 +23,20 @@ public class CameraPager : MonoBehaviour
 
     void Awake()
     {
-        if (Instance != null) { Destroy(gameObject); return; }
+        if (Instance != null)
+        {
+            Destroy(gameObject);
+            return;
+        }
         Instance = this;
     }
 
     public void GoToPage(int targetPage, EdgeSide cameFrom)
     {
-        if (isTransitioning) return;
-        if (targetPage < 0 || targetPage >= pageCenters.Length) return;
+        if (isTransitioning)
+            return;
+        if (targetPage < 0 || targetPage >= pageCenters.Length)
+            return;
         StartCoroutine(SnapRoutine(targetPage, cameFrom));
     }
 
@@ -41,9 +47,11 @@ public class CameraPager : MonoBehaviour
         ZeroRB(mom);
         ZeroRB(fella);
 
+        //Count new camera center
+
         Vector3 start = mainCam.transform.position;
-        Vector3 goal  = new Vector3(
-            pageCenters[targetPage].position.x,
+        Vector3 goal = new Vector3(
+            pageCenters[targetPage].position.x + 7f,
             pageCenters[targetPage].position.y,
             start.z
         );
@@ -57,14 +65,15 @@ public class CameraPager : MonoBehaviour
         }
         mainCam.transform.position = goal;
 
-        float leftEdgeX  = pageCenters[targetPage].position.x - pageWidth * 0.5f + entryInset;
+        float leftEdgeX = pageCenters[targetPage].position.x - pageWidth * 0.5f + entryInset;
         float rightEdgeX = pageCenters[targetPage].position.x + pageWidth * 0.5f - entryInset;
 
-        float spawnX = (cameFrom == EdgeSide.Right) ? leftEdgeX : rightEdgeX;
-        Vector3 baseSpawn = new Vector3(spawnX, mom.position.y, mom.position.z);
+        float spawnX = (cameFrom == EdgeSide.Left) ? leftEdgeX : rightEdgeX;
 
-        mom.position   = baseSpawn + Vector3.left * 0.25f;
-        fella.position = baseSpawn + Vector3.right * 0.25f;
+        //POSITIONS ON THE NEW PAGE
+        mom.position = new Vector3(spawnX - 0.25f, mom.position.y, mom.position.z);
+        fella.position = new Vector3(spawnX + 0.25f, fella.position.y, fella.position.z);
+
 
         currentPage = targetPage;
         isTransitioning = false;
@@ -73,6 +82,28 @@ public class CameraPager : MonoBehaviour
     void ZeroRB(Transform t)
     {
         var rb = t.GetComponent<Rigidbody2D>();
-        if (rb) rb.linearVelocity = Vector2.zero; // Unity 6 API
+        if (!rb)
+            return;
+
+        rb.linearVelocity = Vector2.zero;
+        rb.angularVelocity = 0f;
+        //if (rb) rb.linearVelocity = Vector2.zero; // Unity 6 API
     }
+    
+        void OnDrawGizmosSelected()
+    {
+        if (pageCenters == null)
+            return;
+        Gizmos.color = Color.cyan;
+        foreach (var c in pageCenters)
+        {
+            if (!c)
+                continue;
+            //var left  = c.position + Vector3.left  * (pageWidth * 0.5f + 7f);
+            var right = c.position + Vector3.right * (pageWidth * 0.5f + 7f);
+            //Gizmos.DrawLine(left + Vector3.down * 10f, left + Vector3.up * 10f);
+            Gizmos.DrawLine(right + Vector3.down * 10f, right + Vector3.up * 10f);
+        }
+    }
+
 }
