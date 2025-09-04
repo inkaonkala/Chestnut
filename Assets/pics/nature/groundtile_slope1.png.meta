@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: e5dbc8aa79fdc114bb1f20c34d6e33da
+guid: 729718b5f2c68e249bee19cc0266b76a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1534198116781310313
-    second: groundtile_0
+      213: 3181515176818162604
+    second: groundtile_slope1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,7 +113,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: groundtile_0
+      name: groundtile_slope1_0
       rect:
         serializedVersion: 2
         x: 0
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 79e3d2af0fe65bae0800000000000000
-      internalID: -1534198116781310313
+      spriteID: cabb2c96233072c20800000000000000
+      internalID: 3181515176818162604
       vertices: []
       indices: 
       edges: []

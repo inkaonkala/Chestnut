@@ -1,10 +1,19 @@
 fileFormatVersion: 2
-guid: e5dbc8aa79fdc114bb1f20c34d6e33da
+guid: ee69f951f45d6d64bb0f780fc712c852
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1534198116781310313
-    second: groundtile_0
+      213: 5747351720830911175
+    second: groundtile_slope2_0
+  - first:
+      213: 7624168267040951431
+    second: groundtile_slope2_1
+  - first:
+      213: 636097153909902674
+    second: groundtile_slope2_2
+  - first:
+      213: -7042247040250684739
+    second: groundtile_slope2_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +122,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: groundtile_0
+      name: groundtile_slope2_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 400
-        height: 400
+        x: 29
+        y: 242
+        width: 103
+        height: 158
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +137,74 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 79e3d2af0fe65bae0800000000000000
-      internalID: -1534198116781310313
+      spriteID: 7c24b5770f1b2cf40800000000000000
+      internalID: 5747351720830911175
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: groundtile_slope2_1
+      rect:
+        serializedVersion: 2
+        x: 364
+        y: 382
+        width: 34
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 78c08c0f4ac7ec960800000000000000
+      internalID: 7624168267040951431
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: groundtile_slope2_2
+      rect:
+        serializedVersion: 2
+        x: 392
+        y: 298
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 25dcf65cdfed3d800800000000000000
+      internalID: 636097153909902674
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: groundtile_slope2_3
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 0
+        width: 392
+        height: 211
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dbadf49d0a9e44e90800000000000000
+      internalID: -7042247040250684739
       vertices: []
       indices: 
       edges: []
